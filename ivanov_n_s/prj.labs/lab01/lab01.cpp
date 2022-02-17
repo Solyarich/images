@@ -15,16 +15,16 @@ int main() {
     }
   }
 
-  float start = clock();
+  auto start = std::chrono::high_resolution_clock::now();
 
   cv::Mat G_1(60, 768, CV_8UC1);
   I_1.convertTo(G_1, CV_32F, 1 / 255.0);
   cv::pow(G_1, kor, G_1);
   G_1.convertTo(G_1, CV_8UC1, 255);
 
-  float time = clock() - start;
-
-  float start_2 = clock();
+  auto time = std::chrono::high_resolution_clock::now();
+  auto res = std::chrono::duration_cast<std::chrono::microseconds>(time - start);
+  auto start_2 = std::chrono::high_resolution_clock::now();
 
   cv::Mat G_2(60, 768, CV_8UC1);
   for (int i = 0; i < 60; i++) {
@@ -33,15 +33,16 @@ int main() {
     }
   }
 
-  float time_2 = clock() - start_2;
+  auto time_2 = std::chrono::high_resolution_clock::now();
+  auto res_2 = std::chrono::duration_cast<std::chrono::microseconds>(time_2 - start_2);
 
   cv::Mat img(180, 768, CV_8UC1);
   I_1.copyTo(img(cv::Rect2d(0, 0, 768, 60)));
   G_1.copyTo(img(cv::Rect2d(0, 60, 768, 60)));
   G_2.copyTo(img(cv::Rect2d(0, 120, 768, 60)));
 
-  std::cout << "Time pow: " << time << '\n';
-  std::cout << "Time at: " << time_2 << '\n';
+  std::cout << "Time (pow): " << res.count() << " microseconds" << '\n';
+  std::cout << "Time (at): " << res_2.count() << " microseconds" << '\n';
 
   cv::imwrite("lab01.png", img);
 }
