@@ -8,7 +8,7 @@ int main() {
   for (int i = 0; i < 60; i++) {
     int k = 0;
     for (int j = 0; j < 768; j += 3) {
-      I_1.at<int8_t>(i, j) = k;
+      I_1.at<int8_t>(i, j) = k;   
       I_1.at<int8_t>(i, j + 1) = k;
       I_1.at<int8_t>(i, j + 2) = k;
       k++;
