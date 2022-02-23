@@ -2,7 +2,7 @@
 автор: Иванов Н. С.
 дата: @time_stemp@
 
-<!-- url: https://gitlab.com/2021-misis-spring/polevoy_d_v/-/tree/master/prj.labs/lab02 -->
+[https://github.com/Solyarich/images/tree/main/ivanov_n_s/prj.labs/lab02](https://github.com/Solyarich/images/tree/main/ivanov_n_s/prj.labs/lab02)
 
 ### Задание
 1. В качестве тестового использовать изображение data/cross_0256x0256.png
@@ -27,7 +27,10 @@
 Рис. 3. Визуализация каналов JPEG-версии тестового изображения
 
 ![](cross_0256x0256_hists.png)
-Рис. 3. Визуализация гистограм исходного и JPEG-версии тестового изображения
+Рис. 4. Визуализация гистограм исходного изображения
+
+![](cross_0256x0256_hists_jpeg.png)
+Рис. 5. Визуализация гистограм JPEG-версии тестового изображения
 
 ### Текст программы
 
